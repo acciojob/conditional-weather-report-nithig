@@ -1,13 +1,29 @@
-
 import React from "react";
-import './../styles/App.css';
+import WeatherDisplay from "./WeatherDisplay";
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [data, setData] = React.useState(null);
 
-export default App
+  React.useEffect(() => {
+    setData({ temperature: 25, conditions: "Sunny" });
+  }, []);
+
+  const appContainerStyle = {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#eef2f3",
+    margin: 0,
+    padding: "20px",
+    fontFamily: "Segoe UI",
+  };
+
+  return (
+    <div style={appContainerStyle}>
+      {data && <WeatherDisplay data={data} />}
+    </div>
+  );
+};
+
+export default App;
