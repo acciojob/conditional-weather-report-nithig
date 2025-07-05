@@ -20,25 +20,26 @@ const WeatherDisplay = ({ data }) => {
   };
 
   const temperatureStyle = {
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     fontWeight: "bold",
-    color: tempColor,
+    color: "#333",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "8px"
+    gap: "8px",
+    margin: "0"
   };
 
   const conditionStyle = {
-    fontSize: "1.2rem",
-    color: "#333",
+    fontSize: "1rem",
+    color: "#666",
     marginTop: "10px",
   };
 
   return (
     <div style={containerStyle}>
       <p style={temperatureStyle}>
-        {temperature}°C
+        Temperature: {temperature}
         <span
           style={{
             width: "12px",
