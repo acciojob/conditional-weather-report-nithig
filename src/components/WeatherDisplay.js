@@ -1,11 +1,9 @@
 import React from "react";
 
 const WeatherDisplay = ({ data }) => {
-  const { temperature, conditions } = data;
+  const { temperature } = data;
 
-  // Conditional color for temperature
-  const tempColor = temperature > 20 ? "#333" : "#333"; // Force consistent color as per test expectation
-
+  // Container style
   const containerStyle = {
     maxWidth: "300px",
     margin: "auto",
@@ -18,10 +16,11 @@ const WeatherDisplay = ({ data }) => {
     transition: "all 0.3s ease",
   };
 
-  const temperatureStyle = {
+  // Static color for text
+  const temperatureTextStyle = {
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "#333", // Static color as per test
+    color: "#333", // This matches rgb(51, 51, 51)
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -29,15 +28,12 @@ const WeatherDisplay = ({ data }) => {
     margin: "0"
   };
 
-  const conditionStyle = {
-    fontSize: "1rem",
-    color: "#666",
-    marginTop: "10px",
-  };
+  // Dynamic color for dot indicator
+  const tempColor = temperature > 20 ? "red" : "blue";
 
   return (
     <div style={containerStyle}>
-      <p style={temperatureStyle}>
+      <p style={temperatureTextStyle}>
         Temperature: {temperature}
         <span
           style={{
@@ -49,7 +45,6 @@ const WeatherDisplay = ({ data }) => {
           }}
         ></span>
       </p>
-      <p style={conditionStyle}>Conditions: {conditions}</p>
     </div>
   );
 };
